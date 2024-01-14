@@ -1,0 +1,107 @@
+{
+  "name": "stm32h750_bootloader",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps",
+    "app",
+    "../main_controller_sdk"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "debug_flash_cfg",
+        "files": [
+          {
+            "path": "cmsis_dap_swd_interface.cfg"
+          },
+          {
+            "path": "jlink_swd_interface.cfg"
+          },
+          {
+            "path": "stm32h7_chip.cfg"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "64a5473eb01f087ae044b524f8fe2c1c"
+  },
+  "targets": {
+    "Debug": {
+      "excludeList": [
+        "../main_controller_sdk/hal/Drivers/CMSIS/Core/Template",
+        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_msp_template.c",
+        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_timebase_rtc_alarm_template.c",
+        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_timebase_rtc_wakeup_template.c",
+        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_timebase_tim_template.c",
+        "../main_controller_sdk/hal/Drivers/CMSIS/Core_A",
+        "../main_controller_sdk/hal/Drivers/CMSIS/DSP",
+        "../main_controller_sdk/hal/Drivers/CMSIS/RTOS2",
+        "../main_controller_sdk/hal/Drivers/CMSIS/RTOS",
+        "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates",
+        "../main_controller_sdk/hal/Drivers/CMSIS/NN",
+        "../main_controller_sdk/bsp/w25qxx"
+      ],
+      "toolchain": "GCC",
+      "compileConfig": {
+        "cpuType": "Cortex-M7",
+        "floatingPointHardware": "none",
+        "scatterFilePath": "STM32H750VBTx_FLASH.ld",
+        "useCustomScatterFile": true,
+        "storageLayout": {
+          "RAM": [],
+          "ROM": []
+        },
+        "options": "null"
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "${workspaceFolder}/stm32h7_chip",
+        "interface": "${workspaceFolder}/jlink_swd_interface",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          ".eide/deps",
+          "../main_controller_sdk/bsp",
+          "../main_controller_sdk/hal/Core/Inc",
+          "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc",
+          "../main_controller_sdk/hal/Drivers/CMSIS/Core/Include",
+          "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+          "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "STM32H750xx",
+          "USE_HAL_DRIVER",
+          "USE_FULL_LL_DRIVER"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}
