@@ -48,7 +48,8 @@
         "../main_controller_sdk/hal/Drivers/CMSIS/RTOS",
         "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates",
         "../main_controller_sdk/hal/Drivers/CMSIS/NN",
-        "../main_controller_sdk/bsp/w25qxx"
+        "../main_controller_sdk/bsp/w25qxx",
+        "../main_controller_sdk/openOCD_config"
       ],
       "toolchain": "GCC",
       "compileConfig": {
@@ -91,7 +92,8 @@
           "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc",
           "../main_controller_sdk/hal/Drivers/CMSIS/Core/Include",
           "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
-          "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"
+          "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
+          "../main_controller_sdk/component"
         ],
         "libList": [],
         "sourceDirList": [],

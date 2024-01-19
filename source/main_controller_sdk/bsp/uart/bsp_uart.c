@@ -4,6 +4,8 @@
 typedef struct
 {
 	UART_HandleTypeDef	*huart;
+	uint8_t*            tx_buf;
+	uint16_t 		    tx_buf_len;
 	uint8_t*			rx_buf;
 	uint16_t			rx_buf_len;
 }bsp_uart_priv_t;
@@ -12,8 +14,10 @@ static bsp_uart_priv_t bsp_uart_priv[1];
 
 int8_t bsp_uart_init(bsp_uart_t index)
 {	
+	static uint8_t debuf_uart_tx_buf[512];
+
 	UART_HandleTypeDef* huart = bsp_uart_priv[index].huart;
-	if( huart == NULL )
+	if( huart != NULL )
 	{
 		return 0;
 	}
@@ -21,8 +25,10 @@ int8_t bsp_uart_init(bsp_uart_t index)
 	switch(index)
 	{
 		case DEBUG_UART:
-			MX_USART1_UART_Init();
-			bsp_uart_priv[DEBUG_UART].huart = &huart1;
+			MX_LPUART1_UART_Init();
+			bsp_uart_priv[DEBUG_UART].huart = &hlpuart1;
+			bsp_uart_priv[DEBUG_UART].tx_buf = debuf_uart_tx_buf;
+			bsp_uart_priv[DEBUG_UART].rx_buf_len = sizeof(debuf_uart_tx_buf);
 			break;
 	}
 
