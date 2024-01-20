@@ -1,5 +1,6 @@
 #include "bsp_uart.h"
 #include "usart.h"
+#include <string.h>
 
 typedef struct
 {
@@ -14,7 +15,7 @@ static bsp_uart_priv_t bsp_uart_priv[1];
 
 int8_t bsp_uart_init(bsp_uart_t index)
 {	
-	static uint8_t debuf_uart_tx_buf[512];
+	static uint8_t debug_uart_tx_buf[512];
 
 	UART_HandleTypeDef* huart = bsp_uart_priv[index].huart;
 	if( huart != NULL )
@@ -27,8 +28,8 @@ int8_t bsp_uart_init(bsp_uart_t index)
 		case DEBUG_UART:
 			MX_LPUART1_UART_Init();
 			bsp_uart_priv[DEBUG_UART].huart = &hlpuart1;
-			bsp_uart_priv[DEBUG_UART].tx_buf = debuf_uart_tx_buf;
-			bsp_uart_priv[DEBUG_UART].rx_buf_len = sizeof(debuf_uart_tx_buf);
+			bsp_uart_priv[DEBUG_UART].tx_buf = debug_uart_tx_buf;
+			bsp_uart_priv[DEBUG_UART].tx_buf_len = sizeof(debug_uart_tx_buf);
 			break;
 	}
 
@@ -66,18 +67,25 @@ int8_t bsp_uart_deinit(bsp_uart_t index)
 
 int16_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len)
 {
-	UART_HandleTypeDef* huart = bsp_uart_priv[index].huart;
+	bsp_uart_priv_t*	bsp_uart = &bsp_uart_priv[index];
 
-	if( huart == NULL )
+	if( bsp_uart->huart == NULL )
 	{
 		return -1;
 	}
 
-	HAL_StatusTypeDef ret = HAL_UART_Transmit_IT( huart , buf , len );
-	while( HAL_BUSY ==  ret )
+	//防止覆盖新数据覆盖未完成发送的buf
+	while( (HAL_UART_GetState(bsp_uart->huart) & HAL_UART_STATE_BUSY_TX) != HAL_UART_STATE_READY );
+	if( len < bsp_uart->tx_buf_len )
 	{
-		ret = HAL_UART_Transmit_IT( huart , buf , len );
+		memcpy( bsp_uart->tx_buf , buf , len );
 	}
+	else
+	{
+		return -1;
+	}
+
+	HAL_StatusTypeDef ret = HAL_UART_Transmit_IT( bsp_uart->huart , bsp_uart->tx_buf , len );
 
     return ret == HAL_OK ? len : -1;
 }

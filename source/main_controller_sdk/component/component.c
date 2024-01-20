@@ -8,8 +8,6 @@ static uint16_t debug_port_write(void* ctx,uint8_t* data,uint16_t len)
     return bsp_uart_write( (bsp_uart_t)ctx , data , len );
 }
 
-
-
 int32_t component_init(void)
 {
     //日志初始化

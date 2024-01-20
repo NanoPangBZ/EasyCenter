@@ -33,6 +33,8 @@
 //全部定义为弱符号
 #pragma weak elog_port_output
 #pragma weak elog_port_get_time
+#pragma weak elog_port_output_lock
+#pragma weak elog_port_output_unlock
 
 /**
  * EasyLogger port initialize
