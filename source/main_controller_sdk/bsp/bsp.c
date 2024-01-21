@@ -19,5 +19,6 @@ int8_t bsp_init(void)
 int8_t bsp_deinit(void)
 {
     bsp_led_deinit(DEBUG_LED);
+    bsp_uart_deinit(DEBUG_UART);
     return 0;
 }

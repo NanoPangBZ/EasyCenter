@@ -65,7 +65,7 @@ int8_t bsp_uart_deinit(bsp_uart_t index)
 	return 0;
 }
 
-int16_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len)
+int32_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len)
 {
 	bsp_uart_priv_t*	bsp_uart = &bsp_uart_priv[index];
 
@@ -90,7 +90,7 @@ int16_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len)
     return ret == HAL_OK ? len : -1;
 }
 
-int16_t bsp_uart_read(bsp_uart_t index , uint8_t* buf , uint16_t len)
+int32_t bsp_uart_read(bsp_uart_t index , uint8_t* buf , uint16_t len)
 {
 	UART_HandleTypeDef* huart = bsp_uart_priv[index].huart;
 

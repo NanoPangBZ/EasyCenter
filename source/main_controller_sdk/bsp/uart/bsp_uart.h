@@ -13,8 +13,8 @@ typedef enum{
 
 int8_t bsp_uart_init(bsp_uart_t index);
 int8_t bsp_uart_deinit(bsp_uart_t index);
-int16_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len);
-int16_t bsp_uart_read(bsp_uart_t index , uint8_t* buf , uint16_t len);
+int32_t bsp_uart_write(bsp_uart_t index , uint8_t* buf , uint16_t len);
+int32_t bsp_uart_read(bsp_uart_t index , uint8_t* buf , uint16_t len);
 
 #ifdef __cplusplus
 }
