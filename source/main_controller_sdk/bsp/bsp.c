@@ -12,6 +12,7 @@ int8_t bsp_init(void)
 
     bsp_led_init(DEBUG_LED);
     bsp_uart_init(DEBUG_UART);
+    bsp_qspi_flash_init();
 
     return 0;
 }

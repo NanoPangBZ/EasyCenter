@@ -3,6 +3,7 @@
 
 #include "bsp.h"
 #include "component.h"
+#include "w25qxx_qspi.h"
 
 #define TAG     "user_main"
 
@@ -15,6 +16,9 @@ void user_main(void)
     LOG_INFO(TAG,"This is a info log");
     LOG_WARN(TAG,"This is a warn log");
     LOG_ERR(TAG,"This is a err log");
+
+    uint16_t qspi_flash_id = bsp_qspi_flash_get_id();
+    LOG_INFO(TAG,"get qspi flash id:0x%04X" , qspi_flash_id);
 
     while(1)
     {
