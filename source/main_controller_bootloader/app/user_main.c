@@ -3,7 +3,6 @@
 
 #include "bsp.h"
 #include "component.h"
-#include "w25qxx_qspi.h"
 
 #define TAG     "user_main"
 
