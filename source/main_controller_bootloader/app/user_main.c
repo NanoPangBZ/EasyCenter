@@ -9,8 +9,6 @@ void user_main(void)
     bsp_init();
     component_init();
 
-    qspi_flash_test();
-
     while(1)
     {
         bsp_delay_ms(500);

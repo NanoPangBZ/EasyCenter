@@ -25,6 +25,15 @@
           }
         ],
         "folders": []
+      },
+      {
+        "name": "link_script",
+        "files": [
+          {
+            "path": "STM32H750VBTx_FLASH.ld"
+          }
+        ],
+        "folders": []
       }
     ]
   },
@@ -50,7 +59,10 @@
         "../main_controller_sdk/hal/Drivers/CMSIS/NN",
         "../main_controller_sdk/openOCD_config",
         "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_delayblock.c",
-        "test/w25qxx_qspi.c"
+        "test/w25qxx_qspi.c",
+        "../main_controller_sdk/hal/Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Src/usbd_customhid_if_template.c",
+        "../main_controller_sdk/hal/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c",
+        "../main_controller_sdk/hal/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_desc_template.c"
       ],
       "toolchain": "GCC",
       "compileConfig": {
@@ -95,7 +107,11 @@
           "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
           "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
           "../main_controller_sdk/component",
-          "../main_controller_sdk/test"
+          "../main_controller_sdk/test",
+          "../main_controller_sdk/hal/USB_DEVICE/App",
+          "../main_controller_sdk/hal/USB_DEVICE/Target",
+          "../main_controller_sdk/hal/Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc",
+          "../main_controller_sdk/hal/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"
         ],
         "libList": [],
         "sourceDirList": [],
