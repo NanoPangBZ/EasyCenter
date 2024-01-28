@@ -5,8 +5,7 @@
   "srcDirs": [
     ".eide/deps",
     "app",
-    "../main_controller_sdk",
-    "test"
+    "../main_controller_sdk"
   ],
   "virtualFolder": {
     "name": "<virtual_root>",
@@ -50,7 +49,8 @@
         "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates",
         "../main_controller_sdk/hal/Drivers/CMSIS/NN",
         "../main_controller_sdk/openOCD_config",
-        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_delayblock.c"
+        "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_delayblock.c",
+        "test/w25qxx_qspi.c"
       ],
       "toolchain": "GCC",
       "compileConfig": {
@@ -95,7 +95,7 @@
           "../main_controller_sdk/hal/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
           "../main_controller_sdk/hal/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
           "../main_controller_sdk/component",
-          "test"
+          "../main_controller_sdk/test"
         ],
         "libList": [],
         "sourceDirList": [],

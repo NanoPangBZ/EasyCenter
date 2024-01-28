@@ -23,3 +23,9 @@ int8_t bsp_deinit(void)
     bsp_uart_deinit(DEBUG_UART);
     return 0;
 }
+
+#include "stm32h7xx_hal.h"
+void bsp_delay_ms(uint32_t ms)
+{
+    HAL_Delay(ms);
+}

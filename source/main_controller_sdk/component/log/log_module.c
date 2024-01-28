@@ -21,6 +21,19 @@ const char *elog_port_get_time(void)
     return time_str;
 }
 
+void log_module_buf_dump(const char* tag, uint8_t* buf , uint16_t len)
+{
+    uint8_t* cur_addr = buf;
+    uint8_t* end_addr = buf + len;
+    while( cur_addr < end_addr )
+    {
+        char str[64];
+        sprintf(str,"%02X %02X %02X %02X %02X %02X %02X %02X" , cur_addr[0] , cur_addr[1] , cur_addr[2] , cur_addr[3] , cur_addr[4] , cur_addr[5] , cur_addr[6] , cur_addr[7] );
+        LOG_DEBUG(tag,"%s",str);
+        cur_addr += 8;
+    }
+}
+
 void log_module_init(log_ch_t* log_ch)
 {
     log_channel = log_ch;
