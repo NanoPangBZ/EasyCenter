@@ -3,7 +3,7 @@
     "beforeBuildTasks": [],
     "afterBuildTasks": [],
     "global": {
-        "$float-abi-type": "softfp",
+        "$float-abi-type": "hard",
         "output-debug-info": "enable",
         "misc-control": "--specs=nosys.specs --specs=nano.specs"
     },

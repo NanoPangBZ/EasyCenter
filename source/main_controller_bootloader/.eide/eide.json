@@ -5,7 +5,8 @@
   "srcDirs": [
     ".eide/deps",
     "app",
-    "../main_controller_sdk"
+    "../main_controller_sdk",
+    "build"
   ],
   "virtualFolder": {
     "name": "<virtual_root>",
@@ -67,7 +68,7 @@
       "toolchain": "GCC",
       "compileConfig": {
         "cpuType": "Cortex-M7",
-        "floatingPointHardware": "none",
+        "floatingPointHardware": "single",
         "scatterFilePath": "STM32H750VBTx_FLASH.ld",
         "useCustomScatterFile": true,
         "storageLayout": {
