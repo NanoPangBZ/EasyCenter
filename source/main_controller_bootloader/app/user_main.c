@@ -14,9 +14,9 @@ void user_main(void)
     while(1)
     {
         bsp_delay_ms(500);
-        bsp_led_set(0,1);
-        bsp_delay_ms(500);
-        bsp_led_set(0,0);
+        bsp_led_set(DEBUG_LED,1);
+        bsp_delay_ms(100);
+        bsp_led_set(DEBUG_LED,0);
     }
 }
 
