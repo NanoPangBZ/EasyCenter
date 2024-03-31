@@ -13,9 +13,11 @@ void user_main(void)
 
     while(1)
     {
-        bsp_delay_ms(500);
+        bsp_delay_ms(1000);
+        LOG_DEBUG(TAG,"test.");
         bsp_led_set(DEBUG_LED,1);
-        bsp_delay_ms(100);
+        bsp_delay_ms(1000);
+        LOG_DEBUG(TAG,"test.");
         bsp_led_set(DEBUG_LED,0);
     }
 }

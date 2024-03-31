@@ -40,7 +40,7 @@ void log_module_init(log_ch_t* log_ch)
 
     elog_init();
 
-    elog_set_text_color_enabled(1);
+    elog_set_text_color_enabled(0);
 
     elog_set_fmt( ELOG_LVL_VERBOSE , ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME );
     elog_set_fmt( ELOG_LVL_DEBUG , ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME);

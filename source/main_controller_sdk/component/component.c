@@ -17,8 +17,21 @@ int32_t component_log_init(void)
     return 0;
 }
 
+//nano_host初始化
+int32_t component_nano_host_init(void)
+{
+    static uint8_t decoder_buf[1024];
+    static uint8_t encoder_buf[12];
+
+    nano_decoder_static_create( decoder_buf , sizeof(decoder_buf) );
+    nano_encoder_static_create( encoder_buf , sizeof(encoder_buf) );
+
+    return 0;
+}
+
 int32_t component_init(void)
 {
     component_log_init();
+    component_nano_host_init();
     return 0;
 }
